@@ -32,12 +32,12 @@ catch(Exception $e)
 }
 
 // Récupération des 10 derniers messages
-$reponse = $bdd->query('SELECT pseudo, poster FROM minichat');
+$reponse = $bdd->query('SELECT pseudo, message FROM minichat');
 
 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 while ($donnees = $reponse->fetch())
 {
-	echo '<p><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['poster']) . '</p>';
+	echo '<p><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
 }
 
 $reponse->closeCursor();
